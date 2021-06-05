@@ -101,3 +101,4 @@ production:
   database: stuff_production
   username: stuff
   password: <%= ENV['STUFF_DATABASE_PASSWORD'] %>
+ 
