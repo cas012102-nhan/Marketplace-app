@@ -1,4 +1,10 @@
-
+  # class ApplicationController < ActionController::API
+  #     def encode_token(user_id)
+  #       JWT.encode({user_id: user_id}, ENV['SECRET_TOKEN'])
+  #     end
+    
+    
+    
     class PostsController < ApplicationController   
         before_action :authenticate_user!, except: [:show, :index]
         # before_action :set_post, only: %i[ show edit update destroy ]
@@ -61,4 +67,5 @@
       end
     
 end
+# end
    
