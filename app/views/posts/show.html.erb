@@ -1,2 +1,13 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container-fluid" >
+    <div class="section">
+        <div class="container">
+            <h2 class="title"><%= @post.title %></h2>
+        <div class="content">
+            <%= @post.content %>
+        </div>
+        <%= @post.user.username %>
+        <%= link_to "Edit", edit_post_path(@post), class:"btn btn-primary"%>
+        <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm:"Are you sure?"}, class:"btn btn-danger"%>
+        <%= link_to "Back", posts_path(@post), class:"btn btn-dark" %>
+    </div>
+</div>
