@@ -3,20 +3,22 @@
 
         <div class="section">
              <%= simple_form_for @post do |f| %>
+             <%= f.select :category_id, Category.all.map {|c|[c.category, c.id]} %>
                 <div class="field">
                     <%= f.label :title %>
                     <%= f.text_field :title, class:"form-control" %>
+                </div>
+                <br>
+                 <div class="field">
+                    <%= f.label :content %>
+                    <%= f.text_area :content, class:"form-control" %>
                 </div>
                 <br>
                 <div class="field">
                     <%= f.label :image %>
                     <%= f.file_field :image %>
                 </div>
-
-                 <div class="field">
-                    <%= f.label :content %>
-                    <%= f.text_area :content, class:"form-control" %>
-                </div>
+                <br>
                 <div class="field">
                     <%= f.label :published_at %>
                     <%= f.datetime_select :published_at %>

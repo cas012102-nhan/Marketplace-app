@@ -7,9 +7,17 @@
     
     class PostsController < ApplicationController   
         before_action :authenticate_user!, except: [:show, :index]
-        # before_action :set_post, only: %i[ show edit update destroy ]
+        before_action :find_post, only: %i[ show edit update destroy ]
       def index
-        @posts = Post.all
+        
+        @categories = Category.all
+
+        cate = params[:cate]
+        if !cate.nil?
+          @post = Post.where(:category_id => cate)
+        else
+          @posts = Post.all
+        end
       end
     
       def new 
@@ -57,13 +65,13 @@
       end
     
       private
-      # def set_title
-      #   @post = Post.find(params[:id])
-      # end
+      def find_post
+        @post = Post.find(params[:id])
+      end
      
     
       def post_params
-        params.require(:post).permit(:title, :content, :published_at, :image)
+        params.require(:post).permit(:title, :content, :published_at, :image, :category_id)
       end
     
 end
