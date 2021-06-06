@@ -2,17 +2,20 @@
     <div class="section">
         <div class="container">
             <h2 class="title"><%= @post.title %></h2>
-        <%# <div style="width:300px; height:auto"> %>
-            <%= link_to image_tag(@post.image, style:"width:50%"), posts_path %>
-        <%# </div> %>
+        <div style="width:500px; height:auto">
+            <%= link_to image_tag(@post.image, style:"width:70%"), posts_path %>
+        </div>
         <div class="content">
             <%= @post.content %>
         </div>
         <%= @post.user.username %>
-   
+        <% if current_user && current_user.admin %>
             <%= link_to "Edit", edit_post_path(@post), class:"btn btn-primary"%>
             <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm:"Are you sure?"}, class:"btn btn-danger"%>
+        <% end %>
             <%= link_to "Back", posts_path(@post), class:"btn btn-dark" %>
         
     </div>
-</div>
+</div> 
+
+
