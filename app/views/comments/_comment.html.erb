@@ -1,0 +1,3 @@
+<h6><%= comment.name %></h6>
+<h6><%= comment.idea %></h6>
+<%= link_to 'delete', [comment.post, comment], method: :delete, class:"btn btn-danger", data: {confirm: "Are you aure?"}%>

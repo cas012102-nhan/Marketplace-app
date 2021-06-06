@@ -1,0 +1,17 @@
+<%= simple_form_for([@post, @post.comments.build]) do |f| %>
+    <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:"form-control" %>
+    </div>
+     <br>
+
+    <div class="field">
+        <%= f.label :idea %>
+        <%= f.text_area :idea, class:"form-control" %>
+    </div>
+  
+
+    <br>
+        <%= f.button :submit, 'Post Comment',class:"btn btn-success" %>
+        
+<% end %>
