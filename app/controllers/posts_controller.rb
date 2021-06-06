@@ -9,12 +9,12 @@
         before_action :authenticate_user!, except: [:show, :index]
         before_action :find_post, only: %i[ show edit update destroy ]
       def index
-        
         @categories = Category.all
-
+       
         cate = params[:cate]
+
         if !cate.nil?
-          @post = Post.where(:category_id => cate)
+        @posts = Post.where(:category_id => cate)
         else
           @posts = Post.all
         end
@@ -22,8 +22,6 @@
     
       def new 
         @post = Post.new
-     
-      
       end
     
       def create

@@ -3,7 +3,8 @@
 
         <div class="section">
              <%= simple_form_for @post do |f| %>
-             <%= f.select :category_id, Category.all.map {|c|[c.category, c.id]} %>
+            
+             <%= f.select :category_id, Category.all.map {|c|[c.category,c.id]} %>
                 <div class="field">
                     <%= f.label :title %>
                     <%= f.text_field :title, class:"form-control" %>
@@ -26,6 +27,7 @@
 
                <br>
                 <%= f.button :submit, 'Create Blog',class:"btn btn-success" %>
+               
             <% end %>
 
         </div>
